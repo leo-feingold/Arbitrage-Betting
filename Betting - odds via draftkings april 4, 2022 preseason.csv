@@ -1,0 +1,31 @@
+Team,Over/Under wins,Odds,fangraphs projection,difference,actual # wins,hit/miss
+Los Angeles Dodgers,97.5,-110,94.8,2.7,111,miss
+Toronto Blue Jays,92.5,-110,92.4,0.1,92,hit
+New York Yankees,91.5,-110,91.1,0.4,99,miss
+Houston Astros,91.5,-110,90.7,0.8,106,miss
+Chicago White Sox,91.5,-110,87.4,4.1,81,hit
+New York Mets,90.5,-110,88.1,2.4,101,miss
+Atlanta Braves,90.5,-110,92.6,-2.1,101,hit
+Tampa Bay Rays,89.5,-110,84.8,4.7,86,hit
+San Diego Padres,88.5,"Under: -120, Over: +100",89.6,-1.1,89,hit
+Milwaukee Brewers,88.5,"Over: -115, Under: -105",89.6,-1.1,86,miss
+Boston Red Sox,85.5,-110,86.2,-0.7,78,miss
+San Francisco Giants,85.5,"Over: -115, Under: -105",85,0.5,81,hit
+Philadelphia Phillies,85.5,"Over: -115, Under: -105",86.9,-1.4,87,hit
+St. Louis Cardinals,84.5,-110,82.7,1.8,93,miss
+Los Angeles Angels,83.5,-110,83.3,0.2,73,hit
+Seattle Mariners,83.5,"Over: -115, Under: -105",79.6,3.9,90,miss
+Minnesota Twins,81.5,"Under: -115, Over: -105",82.4,-0.9,78,miss
+Detroit Tigers,77.5,-110,76.5,1,66,hit
+Miami Marlins,76.5,-110,81.8,-5.3,69,miss
+Cleveland Guardians,76.5,-110,77.3,-0.8,92,hit
+Chicago Cubs,75.5,-110,74.8,0.7,74,hit
+Texas Rangers,74.5,"Under: -115, Over: -105",75.1,-0.6,68,miss
+Cincinnati Reds,74.5,"Over: -115, Under: -105",75.4,-0.9,62,miss
+Kansas City Royals,74.5,-110,75.1,-0.6,65,miss
+Washington Nationals,71.5,-110,70.4,1.1,55,hit
+Oakland Athletics,70.5,-110,68.5,2,60,hit
+Colorado Rockies,68.5,-110,67.5,1,68,hit
+Arizona Diamondbacks,66.5,"Over: -115, Under: -105",68.8,-2.3,74,hit
+Pittsburgh Pirates,65.5,-110,68.6,-3.1,62,miss
+Baltimore Orioles,62.5,-110,62.9,-0.4,83,hit
