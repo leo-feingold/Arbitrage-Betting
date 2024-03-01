@@ -1,0 +1,31 @@
+Team,Over/Under,Moneyline (Over),Moneyline (Under),fangraphs odds,difference,actual # of wins,hit/miss
+Dodgers,96.5,-105,-115,88.3,8.2,100,miss
+Braves,95.5,-115,-105,93.2,2.3,104,miss
+Astros,95.5,-112,-108,88.8,6.7,90,hit
+Padres,93.5,-110,-110,91.5,2,82,hit
+Mets,93.5,-106,-114,89.6,3.9,75,hit
+Yankees,93.5,-104,-118,89.5,4,82,hit
+Blue Jays,91.5,-110,-110,87.6,3.9,89,hit
+Rays,89.5,-110,-110,85.7,3.8,99,miss
+Cardinals,88.5,-120,102,86.9,1.6,71,hit
+Phillies,88.5,100,-122,84.9,3.6,90,miss
+Mariners,86.5,-134,110,82.3,4.2,88,miss
+Guardians,86.5,-128,104,81.9,4.6,76,hit
+Brewers,86.5,110,-134,85.6,0.9,92,miss
+Twins,84.5,-110,-110,82.6,1.9,87,miss
+White Sox,83.5,106,-130,79.7,3.8,61,hit
+Angels,82.5,-115,-105,83.5,-1,73,miss
+Rangers,81.5,-105,-115,81.9,-0.4,90,hit
+Giants,81.5,100,-122,83.4,-1.9,79,miss
+Red Sox,78.5,-105,-115,81.4,-2.9,78,miss
+Cubs,76.5,-128,104,76.5,0,83,null
+Orioles,76.5,-122,-102,75.7,0.8,101,miss
+Marlins,75.5,-122,100,80.4,-4.9,84,hit
+Diamondbacks,75.5,-115,-105,78.4,-2.9,84,hit
+Tigers,69.5,-105,-115,71.5,-2,78,hit
+Royals,68.5,-115,-105,72.4,-3.9,56,miss
+Pirates,67.5,-115,-105,74.4,-6.9,76,hit
+Reds,65.5,-120,-102,70.3,-4.8,82,hit
+Rockies,64.5,-105,-115,66.7,-2.2,59,miss
+A's,59.5,-115,-105,68.7,-9.2,50,miss
+Nationals,58.5,-122,100,66.7,-8.2,71,hit
