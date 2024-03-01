@@ -26,16 +26,28 @@ def calcProbability(difference, threshold):
                 if (dataFrames[yearIterator]['hit/miss'].iloc[rowIterator]) != "null":
                     totalBets += 1
 
-    print("Difference: " , difference)
-    print("Threshold: " , threshold)
-    print("Number of Wins :" , winCounter)
-    print("Total Bets: " , totalBets)
-    return (winCounter/totalBets)
+    #For single data point mode:
+    #print("Difference: " , difference)
+    #print("Threshold: " , threshold)
+    #print("Number of Wins :" , winCounter)
+    #print("Total Bets: " , totalBets)
+    if totalBets != 0:
+        return (winCounter/totalBets)
+
+    else:
+        return 0
 
 
 
 def main():
-    print("Historical Probabiltiy of Success: " , calcProbability(3,0.3))
+    #For single data point mode:
+    #print("Historical Probabiltiy of Success: " , calcProbability(3,0.3))
+
+    #For multiple data point coordinate mode:
+    i = 0
+    while i < 10:
+        print("(" , i , ", " , calcProbability(i,0.3), ")")
+        i += 0.1
 
 if __name__ == "__main__":
     main()
