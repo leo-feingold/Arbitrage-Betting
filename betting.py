@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 
@@ -7,7 +8,7 @@ def calcProbability(difference, threshold):
     df2021 = pd.read_csv('Betting - odds via draftkings feb 18, 2021 preseason.csv')
     df2019 = pd.read_csv('Betting - odds via Westgate Las Vegas Superbook, Feb 17, 19.csv')
     df2018 = pd.read_csv('Betting - Odds via Bovada, Mar 8, 2018 preseason (1).csv')
-    df2017 = pd.read_csv('Betting - Odds via Atlantis, Feb 10, 2017 preseason (1).csv')
+    df2017 = pd.read_csv('Betting - Bovada, Mar 30, 2017 preseason (1).csv')
     df2016 = pd.read_csv('Betting - odds via bookmaker, apr 2 2016 preseason.csv')
 
     dataFrames = [df2023, df2022, df2021, df2019, df2018, df2017, df2016]
@@ -43,7 +44,7 @@ def calcProbability(difference, threshold):
 
 def main():
     #For single data point mode:
-    print("Historical Probabiltiy of Success:" , calcProbability(5,0.3))
+    print("Historical Probabiltiy of Success:" , calcProbability(5,0.5))
 
     '''
     #For multiple data point coordinate mode:
