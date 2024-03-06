@@ -3,7 +3,7 @@ Arizona Diamondbacks,74.5,72.4,2.1,52,hit
 Atlanta Braves,91.5,88,3.5,88,hit
 Baltimore Orioles,64.5,64.8,-0.3,52,miss
 Boston Red Sox,80.5,85,-4.5,92,hit
-Chicago Cubs,79.5,79.5,0,71,null
+Chicago Cubs,79.5,79.5,0,71,voids
 Chicago White Sox,91.5,85.9,5.6,93,miss
 Cincinnati Reds,82.5,79.4,3.1,83,miss
 Cleveland Indians,81.5,82,-0.5,80,miss
@@ -13,7 +13,7 @@ Houston Astros,86.5,89.4,-2.9,95,hit
 Kansas City Royals,72.5,77.7,-5.2,74,hit
 Los Angeles Angels,83.5,84.7,-1.2,77,miss
 Los Angeles Dodgers,101.5,99.6,1.9,106,miss
-Miami Marlins,70.5,70.5,0,67,null
+Miami Marlins,70.5,70.5,0,67,voids
 Milwaukee Brewers,82.5,82.8,-0.3,95,hit
 Minnesota Twins,88.5,88.2,0.3,73,hit
 New York Mets,90.5,91.5,-1,77,miss

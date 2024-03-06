@@ -1,11 +1,15 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
+threshold = 0.3
+minTotalBets = 3
 
-def calcProbability(difference, threshold):
-    df2023 = pd.read_csv('Betting - Odds via fandual March 30th, 2023 preseason .csv')
+def countSampleSize():
+
+    df2023 = pd.read_csv('Betting - Odds via fandual March 30th, 2023 preseason  (1).csv')
     df2022 = pd.read_csv('Betting - odds via draftkings april 4, 2022 preseason.csv')
-    df2021 = pd.read_csv('Betting - odds via draftkings feb 18, 2021 preseason.csv')
+    df2021 = pd.read_csv('Betting - odds via draftkings feb 18, 2021 preseason (1).csv')
     df2019 = pd.read_csv('Betting - odds via Westgate Las Vegas Superbook, Feb 17, 19.csv')
     df2018 = pd.read_csv('Betting - Odds via Bovada, Mar 8, 2018 preseason (1).csv')
     df2017 = pd.read_csv('Betting - Bovada, Mar 30, 2017 preseason (1).csv')
@@ -13,6 +17,28 @@ def calcProbability(difference, threshold):
 
     dataFrames = [df2023, df2022, df2021, df2019, df2018, df2017, df2016]
 
+    voidedBets = 0
+
+    for yearIterator in range(len(dataFrames)):
+        for rowIterator in range(len(df2023)):
+            if((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) == "voids":
+                voidedBets += 1
+
+    return ((len(dataFrames)*30) - voidedBets)
+
+
+def calcProbability(difference, threshold):
+
+    df2023 = pd.read_csv('Betting - Odds via fandual March 30th, 2023 preseason  (1).csv')
+    df2022 = pd.read_csv('Betting - odds via draftkings april 4, 2022 preseason.csv')
+    df2021 = pd.read_csv('Betting - odds via draftkings feb 18, 2021 preseason (1).csv')
+    df2019 = pd.read_csv('Betting - odds via Westgate Las Vegas Superbook, Feb 17, 19.csv')
+    df2018 = pd.read_csv('Betting - Odds via Bovada, Mar 8, 2018 preseason (1).csv')
+    df2017 = pd.read_csv('Betting - Bovada, Mar 30, 2017 preseason (1).csv')
+    df2016 = pd.read_csv('Betting - odds via bookmaker, apr 2 2016 preseason.csv')
+
+    dataFrames = [df2023, df2022, df2021, df2019, df2018, df2017, df2016]
+    
     winCounter = 0
     totalBets = 0
 
@@ -23,37 +49,55 @@ def calcProbability(difference, threshold):
                 (abs(dataFrames[yearIterator]['difference'].iloc[rowIterator])) <= (difference + threshold)
                 ):
                 #print("Index: " , df2023.index[rowIterator] , " Difference: " , df2023['difference'].iloc[rowIterator], "Hit or Miss: " , df2023['hit/miss'].iloc[rowIterator])
-                if (dataFrames[yearIterator]['hit/miss'].iloc[rowIterator]) == "hit":
+                #may still need to add some data processing here
+                if ((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) == "hit":
                     winCounter += 1
-                if (dataFrames[yearIterator]['hit/miss'].iloc[rowIterator]) != "null":
+                if ((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) != "null":
                     totalBets += 1
     
-    #For single data point mode:
-    print("Difference: " , difference)
-    print("Threshold: " , threshold)
-    print("Number of Wins :" , winCounter)
-    print("Total Bets: " , totalBets)
+
     
-    if totalBets != 0:
+    if totalBets > minTotalBets:
         return (winCounter/totalBets)
 
-    else:
-        return 0
 
+
+def createNewDataFrame():
+    myArr = []
+    i = 0
+    while i < 6.9:
+        probability = calcProbability(i, threshold)
+        myArr.append([i, probability])
+        i += 0.1
+    df = pd.DataFrame(myArr, columns=['Value', 'Probability'])
+    return df.dropna()
+
+def plotDataLinear():
+    sample_size = countSampleSize()
+    df = createNewDataFrame()
+    plt.scatter(df['Value'], df['Probability'], marker='o', color='blue', label='Data')
+    m, b = np.polyfit(df['Value'], df['Probability'], 1)
+    plt.plot(df['Value'], m*df['Value'] + b, color='red', label='Line Best Fit')
+    plt.xlabel('Difference')
+    plt.ylabel('Probability')
+    plt.title('Probability vs Difference: Beating Vegas')
+    plt.legend()
+    plt.grid(True)
+    equation = f'y = {m:.2f}x + {b:.2f}'
+    plt.text(0.5, 0.9, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
+    plt.suptitle(f"Threshold: {threshold}, Min Total Bets: {minTotalBets}, Sample Size: {sample_size}")
+    plt.show()
 
 
 def main():
     #For single data point mode:
-    print("Historical Probabiltiy of Success:" , calcProbability(5,0.5))
+    #print("Historical Probabiltiy of Success:" , calcProbability(5,0.5))
+    plotDataLinear()
 
-    '''
-    #For multiple data point coordinate mode:
-    i = 0
-    while i < 10:
-        print("(" , i , ", " , calcProbability(i,0.3), ")")
-        i += 0.1
-    '''
 
 
 if __name__ == "__main__":
     main()
+
+
+
