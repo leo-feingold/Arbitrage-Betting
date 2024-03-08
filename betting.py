@@ -51,7 +51,7 @@ def calcProbability(difference, threshold):
                 #may still need to add some data processing here
                 if ((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) == "hit":
                     winCounter += 1
-                if ((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) != "null":
+                if ((dataFrames[yearIterator]['hit/miss'].iloc[rowIterator])) != "voids":
                     totalBets += 1
     
 
