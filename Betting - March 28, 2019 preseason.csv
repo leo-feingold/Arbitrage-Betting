@@ -1,0 +1,33 @@
+Team,Win Total,Over Odds,Under Odds,"Game number
+bet settled","Actual
+Wins",Result,fangraphs proj,hit/miss,difference
+Arizona Diamondbacks,75.5,-110,-110,Game 149,85,Over,77.2,hit,-1.7
+Atlanta Braves,86,115,-135,Game 141,97,Over,83.5,miss,2.5
+Baltimore Orioles,58.5,120,-140,Game 154,54,Under,61,miss,-2.5
+Boston Red Sox,94.5,-105,-115,Game 144,84,Under,95.6,miss,-1.1
+Chicago Cubs,87.5,115,-135,Game 157,84,Under,87.3,hit,0.2
+Chicago White Sox,73.5,100,-120,Game 160,72,Under,71.8,hit,1.7
+Cincinnati Reds,78.5,-140,120,Game 157,75,Under,78.5,voids,0
+Cleveland Indians,90.5,-125,105,Game 154,93,Over,96.7,hit,-6.2
+Colorado Rockies,84.5,-130,110,Game 137,71,Under,79.1,hit,5.4
+Detroit Tigers,68.5,110,-130,Game 134,47,Under,68,hit,0.5
+Houston Astros,96.5,-130,110,Game 150,107,Over,97.7,hit,-1.2
+Kansas City Royals,69.5,115,-135,Game 148,59,Under,69.8,miss,-0.3
+Los Angeles Angels,82.5,-110,-110,Game 147,72,Under,82.3,hit,0.2
+Los Angeles Dodgers,93.5,105,-125,Game 146,106,Over,92.3,miss,1.2
+Miami Marlins,63.5,105,-125,Game 152,57,Under,59.8,hit,3.7
+Milwaukee Brewers,86.5,-110,-110,Game 157,89,Over,81.4,miss,5.1
+Minnesota Twins,83.5,-160,140,Game 136,101,Over,85.4,hit,-1.9
+New York Mets,85.5,-125,105,Game 162,86,Over,83.8,miss,1.7
+New York Yankees,96.5,-130,110,Game 148,103,Over,99.7,hit,-3.2
+Oakland Athletics,83.5,-110,-110,Game 143,97,Over,84.8,hit,-1.3
+Philadelphia Phillies,89.5,115,-135,Game 151,81,Under,85.2,hit,4.3
+Pittsburgh Pirates,77.5,-130,110,Game 150,69,Under,77,hit,0.5
+San Diego Padres,78.5,100,-120,Game 153,70,Under,78,hit,0.5
+San Francisco Giants,73.5,-105,-115,Game 152,77,Over,73.4,miss,0.1
+Seattle Mariners,71.5,-130,110,Game 157,68,Under,74.7,miss,-3.2
+St Louis Cardinals,88.5,-105,-115,Game 156,91,Over,84.2,miss,4.3
+Tampa Bay Rays,84.5,-125,105,Game 144,96,Over,84.3,miss,0.2
+Texas Rangers,71.5,110,-130,Game 145,78,Over,71.3,miss,0.2
+Toronto Blue Jays,74.5,115,-135,Game 143,67,Under,75.7,miss,-1.2
+Washington Nationals,89,-135,115,Game 159,93,Over,90.5,hit,-1.5

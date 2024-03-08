@@ -1,0 +1,33 @@
+Team,Win Total,Over Odds,Under Odds,"Game number
+bet settled","Actual
+Wins",Result,fangraphs projection,hit/miss,difference
+Arizona Diamondbacks,75.5,-110,-110,Game 131,52,Under,72.4,hit,3.1
+Atlanta Braves,91.5,-110,-110,Game 147,88,Under,88,hit,3.5
+Baltimore Orioles,64.5,-105,-115,Game 144,52,Under,64.8,miss,-0.3
+Boston Red Sox,80.5,100,-120,Game 144,92,Over,85,hit,-4.5
+Chicago Cubs,78.5,-110,-110,Game 151,71,Under,79.5,miss,-1
+Chicago White Sox,90.5,-110,-110,Game 159,93,Over,85.9,miss,4.6
+Cincinnati Reds,81.5,-110,-110,Game 157,83,Over,79.4,miss,2.1
+Cleveland Indians,81.5,-110,-110,Game 158,80,Under,82,miss,-0.5
+Colorado Rockies,63.5,-110,-110,Game 141,74,Over,64.8,hit,-1.3
+Detroit Tigers,69.5,-115,-105,Game 146,77,Over,71.5,hit,-2
+Houston Astros,87.5,-115,-105,Game 149,95,Over,89.4,hit,-1.9
+Kansas City Royals,74.5,-120,100,Game 162,74,Under,77.7,miss,-3.2
+Los Angeles Angels,83.5,-115,-105,Game 151,77,Under,84.7,miss,-1.2
+Los Angeles Dodgers,102.5,-110,-110,Game 159,106,Over,99.6,miss,2.9
+Miami Marlins,70.5,-110,-110,Game 156,67,Under,70.5,voids,0
+Milwaukee Brewers,83.5,-110,-110,Game 138,95,Over,82.8,miss,0.7
+Minnesota Twins,88.5,-110,-110,Game 132,73,Under,88.2,hit,0.3
+New York Mets,90.5,-110,-110,Game 144,77,Under,91.5,miss,-1
+New York Yankees,95.5,-110,-110,Game 150,92,Under,95.4,hit,0.1
+Oakland Athletics,87.5,-110,-110,Game 161,86,Under,83.7,hit,3.8
+Philadelphia Phillies,80.5,-145,120,Game 155,82,Over,80,miss,0.5
+Pittsburgh Pirates,58.5,-110,-110,Game 157,61,Over,66.2,hit,-7.7
+San Diego Padres,94.5,-110,-110,Game 142,79,Under,94.7,miss,-0.2
+San Francisco Giants,75.5,100,-120,Game 118,107,Over,76.3,hit,-0.8
+Seattle Mariners,72.5,-110,-110,Game 135,90,Over,74,hit,-1.5
+St Louis Cardinals,86.5,-110,-110,Game 156,90,Over,80.7,miss,5.8
+Tampa Bay Rays,86.5,-110,-110,Game 138,100,Over,82.9,miss,3.6
+Texas Rangers,67.5,-110,-110,Game 150,60,Under,69.8,miss,-2.3
+Toronto Blue Jays,86.5,-110,-110,Game 156,91,Over,87,hit,-0.5
+Washington Nationals,84.5,-110,-110,Game 133,65,Under,81.4,hit,3.1

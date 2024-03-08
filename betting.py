@@ -10,9 +10,9 @@ def loadData():
 
     df2023 = pd.read_csv('Betting - Odds via fandual March 30th, 2023 preseason  (1).csv')
     df2022 = pd.read_csv('Betting - odds via draftkings april 4, 2022 preseason.csv')
-    df2021 = pd.read_csv('Betting - odds via draftkings feb 18, 2021 preseason (1).csv')
-    df2019 = pd.read_csv('Betting - odds via Westgate Las Vegas Superbook, Feb 17, 19.csv')
-    df2018 = pd.read_csv('Betting - Odds via Bovada, Mar 8, 2018 preseason (1).csv')
+    df2021 = pd.read_csv('Betting - April 1, 2021, BetMGM, preseason.csv')
+    df2019 = pd.read_csv('Betting - March 28, 2019 preseason.csv')
+    df2018 = pd.read_csv('Betting - March 29, 2018 preseason.csv')
     df2017 = pd.read_csv('Betting - Bovada, Mar 30, 2017 preseason (1).csv')
     df2016 = pd.read_csv('Betting - odds via bookmaker, apr 2 2016 preseason.csv')
 
