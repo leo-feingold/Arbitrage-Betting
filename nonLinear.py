@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
 
 def loadData():
 
@@ -46,29 +48,40 @@ def formData():
                 myArr.append([currDifference, val])
             
     df = pd.DataFrame(myArr, columns=['Value', 'Probability'])
-    df = df[df['Value'] <= 8] #interesting, but this changes sample size
+    #df = df[df['Value'] <= 8] #interesting, but this changes sample size
     return df.dropna()
 
 
-def plotDataLinear():
+
+def plotDataNonLinear():
     sample_size = countSampleSize()
     df = formData()
     plt.scatter(df['Value'], df['Probability'], marker='o', color='blue', label='Data')
-    m, b = np.polyfit(df['Value'], df['Probability'], 1)
-    plt.plot(df['Value'], m*df['Value'] + b, color='red', label='Line Best Fit')
+
+    # Define a nonlinear function to fit the data
+    def nonlinear_func(x, a, b, c):
+        return a * np.exp(-b * x) + c
+
+    # Fit the nonlinear function to the data
+    popt, pcov = curve_fit(nonlinear_func, df['Value'], df['Probability'])
+
+    # Plot the fitted curve
+    x_values = np.linspace(min(df['Value']), max(df['Value']), 100)
+    plt.plot(x_values, nonlinear_func(x_values, *popt), color='red', label='Nonlinear Best Fit')
+
     plt.xlabel('Difference')
     plt.ylabel('Probability')
     plt.title('Probability vs Difference: Beating Vegas')
     plt.legend()
     plt.grid(True)
-    equation = f'y = {m:.3f}x + {b:.3f}'
+    equation = f'y = {popt[0]:.3f} * exp(-{popt[1]:.3f} * x) + {popt[2]:.3f}'
     plt.text(0.3, 0.15, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Sample Size: {sample_size} Bets")
     plt.show()
 
 
 def main():
-    plotDataLinear()
+    plotDataNonLinear()
 
 
 if __name__ == "__main__":

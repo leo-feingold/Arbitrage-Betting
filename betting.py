@@ -56,7 +56,7 @@ def calcProbability(difference, threshold):
     
 
     
-    if totalBets > minTotalBets:
+    if totalBets > minTotalBets: 
         return (winCounter/totalBets)
 
 
@@ -82,7 +82,7 @@ def plotDataLinear():
     plt.title('Probability vs Difference: Beating Vegas')
     plt.legend()
     plt.grid(True)
-    equation = f'y = {m:.2f}x + {b:.2f}'
+    equation = f'y = {m:.3f}x + {b:.3f}'
     plt.text(0.5, 0.9, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Threshold: {threshold}, Min Total Bets: {minTotalBets}, Sample Size: {sample_size} Bets")
     plt.show()
