@@ -52,7 +52,6 @@ def formData():
     return df.dropna()
 
 
-
 def plotDataNonLinear():
     sample_size = countSampleSize()
     df = formData()
@@ -77,11 +76,29 @@ def plotDataNonLinear():
     equation = f'y = {popt[0]:.3f} * exp(-{popt[1]:.3f} * x) + {popt[2]:.3f}'
     plt.text(0.3, 0.15, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Sample Size: {sample_size} Bets")
-    plt.show()
+    #plt.show()
+    return popt
+
+
+def calcPotentialPayout(odds):
+    # assuming 100 dollar bet
+    if odds >= 100:
+        return odds
+    else:
+        return 100/abs(odds) * 100
+
+
+def calcEV(difference, odds):
+    coef = plotDataNonLinear()
+    probability = coef[0] * np.exp(-1 * coef[1] * abs(difference)) + coef[2]
+    winAmount = calcPotentialPayout(odds)
+    expected_value = winAmount*probability - 100*(1 - probability)
+    print(f"Expected ROI at {odds} and {difference} difference: {expected_value}%")
+    return expected_value
 
 
 def main():
-    plotDataNonLinear()
+    calcEV(14, -110)
 
 
 if __name__ == "__main__":
