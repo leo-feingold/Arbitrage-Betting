@@ -76,7 +76,7 @@ def plotDataNonLinear():
     equation = f'y = {popt[0]:.3f} * exp(-{popt[1]:.3f} * x) + {popt[2]:.3f}'
     plt.text(0.3, 0.15, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Sample Size: {sample_size} Bets")
-    plt.show()
+    #plt.show()
     return popt
 
 
@@ -88,17 +88,46 @@ def calcPotentialPayout(odds):
         return 100/abs(odds) * 100
 
 
-def calcEV(difference, odds):
+def calcEV(odds, book, team, bet, csv_file, line, proj):
     coef = plotDataNonLinear()
+    difference = (line - proj)
     probability = coef[0] * np.exp(-1 * coef[1] * abs(difference)) + coef[2]
     winAmount = calcPotentialPayout(odds)
     expected_value = winAmount*probability - 100*(1 - probability)
+    print(f"Probability: {probability}")
     print(f"Expected ROI at {odds} and {difference} difference: {expected_value}%")
+
+
+    # Create DataFrame to write to CSV
+    data = {'Book': [book],
+            'Odds': [odds],
+            'Bet Type': [bet],
+            'Team': [team],
+            'Expected Value (%)': [expected_value],
+            'Probability': [probability],
+            'Difference': [difference],
+            'Line': [line],
+            'Projection': [proj]}
+
+    df = pd.DataFrame(data)
+    
+    # Append data to CSV file (this is chatGPT not sure what it does)
+    #with open(csv_file, 'a') as f:
+     #   df.to_csv(f, header=f.tell()==0, index=False)
+
+
     return expected_value
 
 
 def main():
-    calcEV(14, -110)
+    odds = -120
+    book = "Fanduel" # if same defualt to Fanduel
+    team = "Oakland Athletics"
+    bet = "Over"
+    csv_file = "data2.csv"  # path to the CSV file
+    line = 57.5
+    proj = 71.4
+    calcEV(odds, book, team, bet, csv_file, line, proj)
 
 
 if __name__ == "__main__":
