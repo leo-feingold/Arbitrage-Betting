@@ -10,8 +10,8 @@ df = df.assign(
 
 df['expected value (%)'] = pd.to_numeric(df['expected value (%)'], errors='coerce')
 
-
-mask = df['expected value (%)'] >= 9
+minEV = 9
+mask = df['expected value (%)'] >= minEV
 df = df[mask]
 
 
@@ -25,6 +25,7 @@ def probability_of_winning_every_bet(df):
     return (df['probability']).prod()
 
 
-print("Probability of losing every bet:", probability_of_losing_every_bet(df))
-print("Probability of winning every bet:", probability_of_winning_every_bet(df))
+print(f"Probability of losing every bet (min EV = {minEV}):", probability_of_losing_every_bet(df))
+print(f"Probability of winning every bet (min EV = {minEV}):", probability_of_winning_every_bet(df))
 print(df.probability.describe())
+

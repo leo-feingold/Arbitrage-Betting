@@ -76,7 +76,7 @@ def plotDataNonLinear():
     equation = f'y = {popt[0]:.3f} * exp(-{popt[1]:.3f} * x) + {popt[2]:.3f}'
     plt.text(0.3, 0.15, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Sample Size: {sample_size} Bets")
-    #plt.show()
+    plt.show()
     return popt
 
 
