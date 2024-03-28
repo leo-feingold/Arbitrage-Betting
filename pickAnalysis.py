@@ -2,6 +2,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from collections import Counter
+
 
 # load the data and create a new column called absDiff that is the absolute value of the difference column 
 df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/fullData.csv').rename(columns = lambda x: x.lower())
@@ -22,7 +24,7 @@ def calcPotentialPayout(odds, betAmount):
     return np.where(odds >= 100, (odds * betAmount)/100, betAmount / np.abs(odds) * 100)
 
 # add the profit, loss and betAmount columns to the data frame
-def probDist(df, betAmount):
+def addCols(df, betAmount):
     df = df.assign(
         profit = lambda x: calcPotentialPayout(x["odds"], betAmount),
         loss = lambda x: -1 * betAmount,
@@ -31,7 +33,8 @@ def probDist(df, betAmount):
     return df
 
 # create the dataframe with those columns
-df = probDist(df, 200)
+moneyPerBet = 100
+df = addCols(df, moneyPerBet)
 
 
 # here is the random sample and simulation:
@@ -39,59 +42,42 @@ def randomSample(df):
     totalWins = 0
     totalLosses = 0
     distribution = []
+    totalMoney = 0
 
-    for samples in range(1000): # 1000 seasons of simulations 
+    for sample in range(1000): # 1000 seasons of simulations 
         winCount = 0
         loseCount = 0
+        money = 0
         for i in range(len(df)):
             random_float = np.random.random()  
             if df.probability.iloc[i] >= random_float: # it is a win if the random float is less than or equal to the probability
                 winCount += 1
+                money += df.profit.iloc[i]
             else:
                 loseCount += 1
+                money += df.loss.iloc[i]
 
-        #for j in range(len(df)):
-            #if winCount == i:
-                #want to create a binomial distribution of the results         
+        distribution.append(winCount)
 
-        print(f"Num Wins: {winCount}, Num Losses: {loseCount}, Result: {winCount/(winCount + loseCount)}")
+        print(f"Num Wins: {winCount}, Num Losses: {loseCount}, Result: {winCount/(winCount + loseCount)}, Money: {money}")
+        totalMoney += money
         totalWins += winCount
         totalLosses += loseCount
 
+    win_counts = Counter(distribution)
     result = totalWins / (totalWins + totalLosses)
-    resultStr = f"Num Wins: {totalWins}, Num Losses: {totalLosses}, Result: {result}"
+    resultStr = f"Num Wins: {totalWins}, Num Losses: {totalLosses}, Result: {result}, Average Money (per year): {totalMoney/1000}"
+
+    prob_distribution = {k: v / 1000 for k, v in win_counts.items()}
+
+    # Plot the probability distribution
+    plt.bar(prob_distribution.keys(), prob_distribution.values())
+    plt.xlabel('Winning Bets (per season)')
+    plt.ylabel('Probability of Occurance')
+    plt.title('Probability Distribution of Win Counts')
+    plt.suptitle(f"Dollars Per Bet: {moneyPerBet}, Simulated Seasons: 1000, Average Profit: ${totalMoney/1000:.2f}, Min ROI: {minEV}%, Number of Bets: {len(df)}")
+    plt.show()
+
     return resultStr
 
 print(randomSample(df))
-
-'''
-
-sample result from function:
-
-Num Wins: 12, Num Losses: 2, Result: 0.8571428571428571
-Num Wins: 13, Num Losses: 1, Result: 0.9285714285714286
-Num Wins: 8, Num Losses: 6, Result: 0.5714285714285714
-Num Wins: 11, Num Losses: 3, Result: 0.7857142857142857
-Num Wins: 10, Num Losses: 4, Result: 0.7142857142857143
-Num Wins: 7, Num Losses: 7, Result: 0.5
-Num Wins: 8, Num Losses: 6, Result: 0.5714285714285714
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 12, Num Losses: 2, Result: 0.8571428571428571
-Num Wins: 7, Num Losses: 7, Result: 0.5
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 13, Num Losses: 1, Result: 0.9285714285714286
-Num Wins: 6, Num Losses: 8, Result: 0.42857142857142855
-Num Wins: 8, Num Losses: 6, Result: 0.5714285714285714
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 12, Num Losses: 2, Result: 0.8571428571428571
-Num Wins: 10, Num Losses: 4, Result: 0.7142857142857143
-Num Wins: 13, Num Losses: 1, Result: 0.9285714285714286
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 8, Num Losses: 6, Result: 0.5714285714285714
-Num Wins: 8, Num Losses: 6, Result: 0.5714285714285714
-Num Wins: 9, Num Losses: 5, Result: 0.6428571428571429
-Num Wins: 11, Num Losses: 3, Result: 0.7857142857142857
-Num Wins: 10, Num Losses: 4, Result: 0.7142857142857143
-
-'''
