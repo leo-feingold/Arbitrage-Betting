@@ -76,7 +76,7 @@ def plotDataNonLinear():
     equation = f'y = {popt[0]:.3f} * exp(-{popt[1]:.3f} * x) + {popt[2]:.3f}'
     plt.text(0.3, 0.15, equation, fontsize=12, color='black', transform=plt.gca().transAxes)
     plt.suptitle(f"Sample Size: {sample_size} Bets")
-    plt.show()
+    #plt.show()
     return popt
 
 
@@ -112,8 +112,8 @@ def calcEV(odds, book, team, bet, csv_file, line, proj):
     df = pd.DataFrame(data)
     
     # Append data to CSV file (this is chatGPT not sure what it does)
-    #with open(csv_file, 'a') as f:
-     #   df.to_csv(f, header=f.tell()==0, index=False)
+    with open(csv_file, 'a') as f:
+      df.to_csv(f, header=f.tell()==0, index=False)
 
 
     return expected_value
@@ -122,11 +122,11 @@ def calcEV(odds, book, team, bet, csv_file, line, proj):
 def main():
     odds = -120
     book = "Fanduel" # if same defualt to Fanduel
-    team = "Oakland Athletics"
-    bet = "Over"
-    csv_file = "data2.csv"  # path to the CSV file
-    line = 57.5
-    proj = 71.4
+    team = ""
+    bet = "Under"
+    csv_file = "adjustedData.csv"  # path to the CSV file
+    line = 81.5
+    proj = 79
     calcEV(odds, book, team, bet, csv_file, line, proj)
 
 
