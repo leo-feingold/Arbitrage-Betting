@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 
+
 # load the data and create a new column called absDiff that is the absolute value of the difference column 
 # for the actual placed bets: (kinda ass) 
-#df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/bets.csv').rename(columns = lambda x: x.lower())
+df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/bets.csv').rename(columns = lambda x: x.lower())
 # other bets using both mgm and fanduel from preseason (not last day of the preseason)
-df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/fullData.csv').rename(columns = lambda x: x.lower())
+#df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/fullData.csv').rename(columns = lambda x: x.lower())
 df = df.assign(
     absDiff = lambda x: abs(x.difference)
 )
@@ -18,9 +19,9 @@ df = df.assign(
 df['expected value (%)'] = pd.to_numeric(df['expected value (%)'], errors='coerce')
 
 # Restrict the bets down to only bets with at least an 8% ROI (8 is somewhat arbitralily chosen...)
-minEV = 11 #THIS IS SUPER IMPORTANT ODD NUMBER OF BETS IS WAY BETTER THAN EVEN!!!
+minEV = 0 #THIS IS SUPER IMPORTANT ODD NUMBER OF BETS IS WAY BETTER THAN EVEN!!!
 mask = df['expected value (%)'] >= minEV
-df = df[mask]
+#df = df[mask]
 
 # payout 
 def calcPotentialPayout(odds, betAmount):
@@ -82,7 +83,8 @@ def randomSample(df):
     plt.xlabel('Winning Bets (per season)')
     plt.ylabel('Probability of Occurance')
     plt.title('Probability Distribution of Win Counts')
-    plt.suptitle(f"Dollars Per Bet: {moneyPerBet}, Simulated Seasons: {numSims}, Average Profit: ${totalMoney/numSims:.2f}, Min ROI: {minEV}%, Number of Bets: {len(df)}")
+    #plt.suptitle(f"Dollars Per Bet: {moneyPerBet}, Simulated Seasons: {numSims}, Average Profit: ${totalMoney/numSims:.2f}, Min ROI: {minEV}%, Number of Bets: {len(df)}")
+    plt.suptitle(f"Dollars Per Bet: {moneyPerBet}, Simulated Seasons: {numSims}, Average Profit: ${totalMoney/numSims:.2f}, Number of Bets: {len(df)}")
 
     for x, y in zip(prob_distribution.keys(), prob_distribution.values()):
         plt.text(x, y, f'{y:.2f}', ha='center', va='bottom')
