@@ -8,7 +8,7 @@ from collections import Counter
 
 # load the data and create a new column called absDiff that is the absolute value of the difference column 
 # for the actual placed bets: (kinda ass) 
-df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/bets.csv').rename(columns = lambda x: x.lower())
+df = pd.read_csv("/Users/leofeingold/Desktop/Arbitrage-Betting/bets.csv").rename(columns = lambda x: x.lower())
 # other bets using both mgm and fanduel from preseason (not last day of the preseason)
 #df = pd.read_csv('/Users/leofeingold/Documents/GitHub/Arbitrage-Betting/fullData.csv').rename(columns = lambda x: x.lower())
 df = df.assign(
